@@ -8,7 +8,7 @@ description: The three-tier candidate search plus constraint-satisfaction solver
 # Numeric fingerprinting engine
 
 This is the centerpiece of report-first bootstrapping. Code:
-[`canoniq/fingerprint/`](../../canoniq/fingerprint/).
+[`canoniq/fingerprint/`](https://github.com/kshesha1/Canoniq/tree/main/canoniq/fingerprint/).
 
 The idea: **a candidate SQL expression is only trusted once it empirically
 reproduces the published figures** — the grand total, every dimensional
@@ -18,7 +18,7 @@ one candidate expression is not.
 
 ## D0 — the shared executor
 
-[`canoniq/fingerprint/executor.py::SnapshotExecutor`](../../canoniq/fingerprint/executor.py)
+[`canoniq/fingerprint/executor.py::SnapshotExecutor`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/fingerprint/executor.py)
 
 - Every query runs through **DuckDB reading a PyIceberg snapshot scan**
   registered as an Arrow view.
@@ -29,7 +29,7 @@ one candidate expression is not.
 - Historical column names are normalized to current names via Iceberg
   **field IDs**, so a query written against `EXP_AMT_USD` correctly reads
   a pre-rename snapshot that only had `EXP_AMT` (see
-  [`canoniq/fingerprint/catalog.py::IcebergCatalogAdapter.arrow_for`](../../canoniq/fingerprint/catalog.py)).
+  [`canoniq/fingerprint/catalog.py::IcebergCatalogAdapter.arrow_for`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/fingerprint/catalog.py)).
 - Comparisons use `Decimal` throughout — never float tolerance on money.
   `tolerance` defaults to 0.5%: `|computed - reported| / |reported| <= tol`.
 - Results are cached on `(expr_canonical_key, snapshot_as_of, binding)` —
@@ -51,7 +51,7 @@ model](./data-model.md)). Nothing deeper is in scope for v1 — see
 
 ## Three tiers, run in strict order
 
-Code: [`canoniq/fingerprint/tiers.py`](../../canoniq/fingerprint/tiers.py).
+Code: [`canoniq/fingerprint/tiers.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/fingerprint/tiers.py).
 Each tier only runs if the previous one produced zero survivors, **except
 Tier 1, which always runs** (it's cheap).
 
@@ -105,7 +105,7 @@ in the benchmark walkthrough.
 
 ## D4 — the constraint-satisfaction solver
 
-Code: [`canoniq/fingerprint/solver.py`](../../canoniq/fingerprint/solver.py).
+Code: [`canoniq/fingerprint/solver.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/fingerprint/solver.py).
 
 This is what separates real mappings from coincidences. For every
 candidate that survives its tier's grand-total check:

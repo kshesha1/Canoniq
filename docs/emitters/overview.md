@@ -8,14 +8,14 @@ description: The three output formats canoniq writes, and what each carries.
 # Emitters
 
 Canoniq emits three formats from the same `SemanticModelProposal`
-([`canoniq/proposer/models.py`](../../canoniq/proposer/models.py)), whether
+([`canoniq/proposer/models.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/proposer/models.py)), whether
 that proposal came from the mining-first LLM proposer or was assembled
 from report-first resolved mappings
 (`canoniq/pipeline.py::_proposals_from_mappings`).
 
 ## dbt MetricFlow YAML
 
-Code: [`canoniq/emitters/metricflow.py`](../../canoniq/emitters/metricflow.py).
+Code: [`canoniq/emitters/metricflow.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/emitters/metricflow.py).
 
 Emits a `semantic_models` block (entities, dimensions, measures) plus a
 top-level `metrics` block. Every metric carries a `meta` audit trail:
@@ -34,7 +34,7 @@ comment. A clean single `AGG(column)` expression becomes a proper
 best-effort `expr`.
 
 This goes through the **same validation loop**
-([`canoniq/validation/loop.py`](../../canoniq/validation/loop.py)) for
+([`canoniq/validation/loop.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/validation/loop.py)) for
 both pipelines: emit → validate (`mf validate-configs` if on `PATH`,
 else a jsonschema structural check) → repair (feed errors back to the
 LLM proposer) → retry, capped at `llm.max_retries`. Report-first
@@ -45,7 +45,7 @@ construction.
 
 ## OSI v1.0 YAML
 
-Code: [`canoniq/emitters/osi.py`](../../canoniq/emitters/osi.py).
+Code: [`canoniq/emitters/osi.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/emitters/osi.py).
 
 Emits the [OSI v1.0 spec](https://github.com/open-semantic-interchange/OSI)
 shape: `datasets` (fields = entities + dimensions), `relationships` (from
@@ -56,7 +56,7 @@ automatically.
 
 ## OpenMetadata JSON
 
-Code: [`canoniq/emit/openmetadata.py`](../../canoniq/emit/openmetadata.py).
+Code: [`canoniq/emit/openmetadata.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/emit/openmetadata.py).
 **Report-first only** — there's no mining-first equivalent yet.
 
 **Files only — no live API client.** Canoniq is a **population engine for

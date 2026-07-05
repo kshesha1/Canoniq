@@ -7,8 +7,8 @@ description: How PDF board reports become ReportMetricInstance objects.
 
 # Report extraction
 
-Code: [`canoniq/extract/report.py`](../../canoniq/extract/report.py),
-[`canoniq/extract/prose.py`](../../canoniq/extract/prose.py).
+Code: [`canoniq/extract/report.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/extract/report.py),
+[`canoniq/extract/prose.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/extract/prose.py).
 
 ## Pipeline
 

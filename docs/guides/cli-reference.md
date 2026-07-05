@@ -7,7 +7,7 @@ description: Every canoniq command, its flags, and what it reads/writes.
 
 # CLI reference
 
-All commands are defined in [`canoniq/cli.py`](../../canoniq/cli.py).
+All commands are defined in [`canoniq/cli.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/cli.py).
 
 ## Command summary
 

@@ -65,7 +65,7 @@ comment in the code:
   doesn't understand synonyms, business jargon, or multi-table joins.
 - **DDL role inference is naming/type/constraint heuristics**, not
   learned — see `_infer_role` in
-  [`canoniq/ingest/ddl_extractor.py`](../../canoniq/ingest/ddl_extractor.py).
+  [`canoniq/ingest/ddl_extractor.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/ingest/ddl_extractor.py).
 
 ## The closing line from the spec
 

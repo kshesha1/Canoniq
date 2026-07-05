@@ -7,7 +7,7 @@ description: ReportMetricInstance, CandidateExpr, ResolvedMapping and the rest o
 
 # Core data model
 
-All of these live in [`canoniq/models.py`](../../canoniq/models.py) as
+All of these live in [`canoniq/models.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/models.py) as
 Pydantic models. This page explains *why* each one exists and how they
 connect — the docstrings in the code cover field-by-field detail.
 
@@ -51,7 +51,7 @@ class FormulaHypothesis(BaseModel):
     verbatim: str                  # the sentence it came from
 ```
 
-Mined by [`canoniq/extract/prose.py::mine_formula_hypotheses`](../../canoniq/extract/prose.py)
+Mined by [`canoniq/extract/prose.py::mine_formula_hypotheses`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/extract/prose.py)
 from sentences like *"Total Credit Risk Exposure is calculated as gross
 exposure less collateral held."* These seed Tier 3 of the fingerprinting
 engine — each term description is resolved to a physical column
@@ -70,7 +70,7 @@ class TableauEvidence(BaseModel):
     role_hints: dict[str, str]      # column -> "dimension" | "measure"
 ```
 
-Produced by [`canoniq/extract/tableau.py`](../../canoniq/extract/tableau.py).
+Produced by [`canoniq/extract/tableau.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/extract/tableau.py).
 Tableau calculated fields are almost literally the SQL you're looking for
 — they get a trust prior of 0.85, just below steward-confirmed.
 
@@ -121,7 +121,7 @@ class DimensionBinding(BaseModel):
     label_to_value: dict[str, str]  # "Meridian NY" -> "Meridian NY"
 ```
 
-Resolved by [`canoniq/fingerprint/solver.py::resolve_dimension`](../../canoniq/fingerprint/solver.py) —
+Resolved by [`canoniq/fingerprint/solver.py::resolve_dimension`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/fingerprint/solver.py) —
 maps a report's dimension labels ("Meridian NY", "Internal Fraud
 (INT_FRD)") to the column and (at most one) join whose values, joined or
 not, account for every label the report printed. A confirmed mapping

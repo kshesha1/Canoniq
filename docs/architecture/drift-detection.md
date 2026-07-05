@@ -7,7 +7,7 @@ description: Detecting renames, silent redefinitions, and undocumented changes a
 
 # Semantic drift detection
 
-Code: [`canoniq/drift/report_diff.py::diff_reports`](../../canoniq/drift/report_diff.py).
+Code: [`canoniq/drift/report_diff.py::diff_reports`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/drift/report_diff.py).
 
 Given two report editions' extracted instances and their resolved
 mappings, `diff_reports` detects four kinds of `DriftFinding`:

@@ -87,7 +87,7 @@ Requirements:
 
 - The Iceberg warehouse must use PyIceberg's **SQLite catalog** convention
   (a `catalog.db` file alongside the table data directory). See
-  [`canoniq/fingerprint/catalog.py`](../canoniq/fingerprint/catalog.py).
+  [`canoniq/fingerprint/catalog.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/fingerprint/catalog.py).
 - Every table snapshot that a report figure should be checked against must
   carry a `canoniq.as_of` snapshot property (or Canoniq falls back to the
   snapshot's commit timestamp) within **3 days** of the report's `as_of`

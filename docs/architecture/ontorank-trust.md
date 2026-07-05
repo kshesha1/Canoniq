@@ -7,7 +7,7 @@ description: The 5-signal trust scorer and the fixed source-authority table.
 
 # OntoRank & trust tiers
 
-OntoRank ([`canoniq/ranking/ontorank.py`](../../canoniq/ranking/ontorank.py))
+OntoRank ([`canoniq/ranking/ontorank.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/ranking/ontorank.py))
 is a 5-signal scorer applied to every metric candidate, in both pipelines:
 
 | Signal | What it measures | Weight (default) |
@@ -25,7 +25,7 @@ Weights are configurable per-project in `canoniq.yaml`
 ## The source-authority table
 
 Every candidate carries one or more `SourceType` tags
-([`canoniq/ingest/base.py::SourceType`](../../canoniq/ingest/base.py)),
+([`canoniq/ingest/base.py::SourceType`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/ingest/base.py)),
 each with a fixed authority prior
 (`canoniq/ranking/ontorank.py::SOURCE_AUTHORITY`, kept in sync with the
 enum by convention, not by code — if you add a `SourceType` you must add

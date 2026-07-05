@@ -7,7 +7,7 @@ description: What's inside benchmark/brownfield, why the traps matter, and how t
 
 # The brownfield benchmark
 
-Code: [`benchmark/brownfield/`](../../benchmark/brownfield/generate.py).
+Code: [`benchmark/brownfield/`](https://github.com/kshesha1/Canoniq/blob/main/benchmark/brownfield/generate.py).
 Regenerate with `python -m benchmark.brownfield.generate` (deterministic,
 seeded, idempotent) or `canoniq benchmark --regenerate`.
 
@@ -130,7 +130,7 @@ canoniq benchmark
 ```
 
 Scoring logic lives in
-[`canoniq/evals/brownfield.py::score_benchmark`](../../canoniq/evals/brownfield.py),
+[`canoniq/evals/brownfield.py::score_benchmark`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/evals/brownfield.py),
 consuming `gold_labels.yaml` and the `BootstrapResult` from
 `canoniq/pipeline.py::run_bootstrap`. `canoniq benchmark` exits non-zero
 if `Scorecard.passed` is `False` — wire this into CI to catch a regression
@@ -140,7 +140,7 @@ in extraction, fingerprinting, drift detection, or trap handling.
 
 Every `canoniq benchmark` / `canoniq bootstrap` run writes
 `conflict_report.md` (+ `.json` twin) with four sections — see
-[`canoniq/report/conflict.py`](../../canoniq/report/conflict.py):
+[`canoniq/report/conflict.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/report/conflict.py):
 
 1. **Confirmed mappings** — table of metric → physical expression →
    confidence band → constraint summary ("7/7 figures reproduced, incl. 4

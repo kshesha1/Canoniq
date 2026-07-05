@@ -20,15 +20,16 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://kshesha1.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/Canoniq/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'canoniq', // Usually your GitHub org/user name.
-  projectName: 'canoniq', // Usually your repo name.
+  organizationName: 'kshesha1', // GitHub org/user name.
+  projectName: 'Canoniq', // GitHub repo name.
+  deploymentBranch: 'gh-pages', // unused by the Actions-based deploy below, kept for `docusaurus deploy` as a fallback
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
@@ -53,7 +54,7 @@ const config = {
           routeBasePath: '/', // docs are the whole site, no separate landing page
           sidebarPath: './sidebars.js',
           exclude: ['**/README.md'], // contributor-facing only, not a rendered page
-          editUrl: 'https://github.com/canoniq/canoniq/tree/main/docs/',
+          editUrl: 'https://github.com/kshesha1/Canoniq/tree/main/docs/',
         },
         blog: false, // no blog for this project
         theme: {
@@ -85,7 +86,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/canoniq/canoniq',
+            href: 'https://github.com/kshesha1/Canoniq',
             label: 'GitHub',
             position: 'right',
           },
@@ -107,7 +108,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/canoniq/canoniq',
+                href: 'https://github.com/kshesha1/Canoniq',
               },
             ],
           },

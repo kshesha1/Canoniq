@@ -14,7 +14,7 @@ code but start from opposite ends of the problem.
 
 This is the pipeline described in the project's `CANONIQ_V1_REPORTFIRST_SPEC.md`
 build spec (repo root, not part of this docs site) and implemented in
-[`canoniq/pipeline.py`](../../canoniq/pipeline.py) as a LangGraph state
+[`canoniq/pipeline.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/pipeline.py) as a LangGraph state
 machine with five nodes:
 
 ```
@@ -46,9 +46,9 @@ documents (BRD/PDF/Word) ┤                                          ▲       
 Excel reports ─────┘                                                └── repair on fail ─┘
 ```
 
-See [`canoniq/ingest/`](../../canoniq/ingest/),
-[`canoniq/mining/`](../../canoniq/mining/), and
-[`canoniq/proposer/`](../../canoniq/proposer/) for the five evidence
+See [`canoniq/ingest/`](https://github.com/kshesha1/Canoniq/tree/main/canoniq/ingest/),
+[`canoniq/mining/`](https://github.com/kshesha1/Canoniq/tree/main/canoniq/mining/), and
+[`canoniq/proposer/`](https://github.com/kshesha1/Canoniq/tree/main/canoniq/proposer/) for the five evidence
 sources, the sqlglot-based candidate extractor, and the Claude-via-
 Instructor proposer respectively.
 
@@ -56,13 +56,13 @@ Instructor proposer respectively.
 
 Both pipelines converge on the same three concepts:
 
-1. **OntoRank** ([`canoniq/ranking/ontorank.py`](../../canoniq/ranking/ontorank.py)) —
+1. **OntoRank** ([`canoniq/ranking/ontorank.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/ranking/ontorank.py)) —
    a fixed per-source-type trust prior (see
    [OntoRank & trust tiers](./ontorank-trust.md)), whether the evidence came
    from a query log, a DDL constraint, a Tableau calculated field, or —
    report-first only — an empirical numeric fingerprint (the highest
    non-steward prior at 0.98).
-2. **`SemanticModelProposal`** ([`canoniq/proposer/models.py`](../../canoniq/proposer/models.py)) —
+2. **`SemanticModelProposal`** ([`canoniq/proposer/models.py`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/proposer/models.py)) —
    the one shape both pipelines produce before handing off to the emitters
    and validation loop. Report-first mappings are converted into this
    shape in `canoniq/pipeline.py::_proposals_from_mappings`.

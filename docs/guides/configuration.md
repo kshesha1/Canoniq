@@ -13,9 +13,9 @@ commands take CLI flags directly instead — see [CLI
 reference](./cli-reference.md).
 
 Loaded and validated by
-[`canoniq/config.py::load_config`](../../canoniq/config.py) into a
+[`canoniq/config.py::load_config`](https://github.com/kshesha1/Canoniq/blob/main/canoniq/config.py) into a
 `Config` dataclass. A full annotated example lives at
-[`examples/canoniq.yaml.example`](../../examples/canoniq.yaml.example).
+[`examples/canoniq.yaml.example`](https://github.com/kshesha1/Canoniq/blob/main/examples/canoniq.yaml.example).
 
 ```yaml
 project_name: my_semantic_model

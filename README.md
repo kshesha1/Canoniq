@@ -1,5 +1,7 @@
 # canoniq
 
+📖 **[Full documentation](https://kshesha1.github.io/Canoniq/)** — architecture, the numeric fingerprinting engine, CLI reference, and the brownfield benchmark walkthrough. (Source: [`docs/`](docs/), rendered with Docusaurus from [`site/`](site/).)
+
 An open-source **cold-start semantic bootstrapping engine for brownfield
 enterprises**: organizations with no dbt, no semantic layer, no documented
 business-to-physical mappings — only legacy artifacts (cryptic
