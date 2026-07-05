@@ -12,6 +12,7 @@ dist/
 canoniq_output/
 .env
 .DS_Store
+.claude/settings.local.json
 
 # Generated brownfield benchmark artifacts -- regenerate with:
 #   python -m benchmark.brownfield.generate
