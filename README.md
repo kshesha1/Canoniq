@@ -1,4 +1,6 @@
-# canoniq
+<p align="center"><img src=".github/logo.svg" width="72" alt="Canoniq logo"></p>
+
+<h1 align="center">canoniq</h1>
 
 📖 **[Full documentation](https://kshesha1.github.io/Canoniq/)** — architecture, the numeric fingerprinting engine, CLI reference, and the brownfield benchmark walkthrough. (Source: [`docs/`](docs/), rendered with Docusaurus from [`site/`](site/).)
 
