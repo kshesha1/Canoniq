@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docusaurus-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "site", "start"],
+      "port": 3000
+    }
+  ]
+}

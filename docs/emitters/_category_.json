@@ -1,0 +1,8 @@
+{
+  "label": "Emitters",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "The three output formats canoniq writes: MetricFlow, OSI, and OpenMetadata."
+  }
+}

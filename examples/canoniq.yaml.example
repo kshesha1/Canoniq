@@ -1,0 +1,68 @@
+project_name: my_semantic_model
+
+warehouse:
+  type: duckdb                     # duckdb | snowflake | bigquery | trino
+  path: ./warehouse.db             # DuckDB only
+  # For Snowflake:
+  # account: xy12345.us-east-1
+  # user: ${SNOWFLAKE_USER}
+  # password: ${SNOWFLAKE_PASSWORD}
+  # database: ANALYTICS
+  # schema: PUBLIC
+  # warehouse: COMPUTE_WH
+
+# DDL files — used when no live warehouse connection or to supplement it.
+# The DDL extractor runs naming-convention heuristics to infer semantic roles.
+ddl_files:
+  - ./schema/store_sales.sql
+  - ./schema/customer.sql
+
+# Business documents — BRDs, PDFs, Word docs, plain text.
+# Claude extracts metric definitions; they are grounded against real schema.
+document_files:
+  - ./docs/revenue_definitions_brd.pdf
+  - ./docs/kpi_glossary.docx
+
+# Excel reports — named ranges and formula cells are mined for metric candidates.
+excel_files:
+  - ./reports/monthly_kpi_report.xlsx
+
+# SQL query log — OPTIONAL. Adds frequency signal but not required; DDL and
+# documents alone are sufficient inputs. Comment out or remove this whole
+# section if you have no query log.
+query_log:
+  type: file                       # file | snowflake_history | trino_history
+  path: ./queries.sql              # file type: one SQL statement per line
+  # For Snowflake:
+  # lookback_days: 90
+  # min_execution_count: 3        # ignore queries run fewer than N times
+
+require_query_log: false           # set true to make query_log mandatory again
+
+sources:
+  dbt_manifest: ./target/manifest.json   # optional
+
+output:
+  formats: [metricflow, osi]       # which specs to emit
+  dir: ./canoniq_output/
+
+ontorank:
+  weights:
+    source_authority: 0.30
+    usage_frequency: 0.25
+    cross_source_agreement: 0.20
+    recency: 0.15
+    certification_status: 0.10
+  thresholds:
+    auto_merge: 0.85               # above this -> write without human review
+    review: 0.50                   # between review and auto_merge -> queue for review
+    drop: 0.50                     # below this -> discard silently
+
+llm:
+  provider: anthropic              # anthropic | openai
+  model: claude-sonnet-4-6
+  max_retries: 3                   # validation loop max attempts
+
+continuous:
+  enabled: false                   # set true to run event-driven watcher
+  poll_interval_seconds: 300       # how often to check query log for new queries

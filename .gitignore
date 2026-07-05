@@ -1,0 +1,30 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.db
+!examples/**/*.db
+canoniq_output/
+.env
+.DS_Store
+
+# Generated brownfield benchmark artifacts -- regenerate with:
+#   python -m benchmark.brownfield.generate
+# or `canoniq benchmark --regenerate`. Deterministic, so not committed.
+benchmark/brownfield/warehouse/
+benchmark/brownfield/reports/
+benchmark/brownfield/tableau/
+benchmark/brownfield/docs/
+benchmark/brownfield/output/
+benchmark/brownfield/gold_labels.yaml
+
+# Docusaurus site
+site/node_modules
+site/build
+site/.docusaurus
+site/.cache-loader

@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v12.json",
+    "project_name": "my_semantic_model"
+  },
+  "nodes": {
+    "model.my_semantic_model.store_sales": {
+      "resource_type": "model",
+      "unique_id": "model.my_semantic_model.store_sales",
+      "name": "store_sales",
+      "description": "One row per store sale line item",
+      "columns": {
+        "ss_net_profit": {
+          "name": "ss_net_profit",
+          "description": "Net profit for the line item",
+          "data_type": "number"
+        },
+        "ss_customer_sk": {
+          "name": "ss_customer_sk",
+          "description": "Foreign key to customer",
+          "data_type": "number"
+        }
+      }
+    },
+    "model.my_semantic_model.customer": {
+      "resource_type": "model",
+      "unique_id": "model.my_semantic_model.customer",
+      "name": "customer",
+      "description": "One row per customer",
+      "columns": {
+        "c_customer_sk": {
+          "name": "c_customer_sk",
+          "description": "Primary key",
+          "data_type": "number"
+        }
+      }
+    }
+  },
+  "metrics": {
+    "metric.my_semantic_model.total_net_profit": {
+      "name": "total_net_profit",
+      "description": "Certified total net profit across all store sales",
+      "type_params": {
+        "expr": "SUM(ss_net_profit)",
+        "measure": "ss_net_profit_sum"
+      },
+      "depends_on": {
+        "nodes": ["model.my_semantic_model.store_sales"]
+      }
+    }
+  }
+}

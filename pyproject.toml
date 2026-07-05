@@ -1,0 +1,84 @@
+[project]
+name = "canoniq"
+version = "0.1.0"
+description = "Open-source semantic layer authoring agent"
+requires-python = ">=3.11"
+readme = "README.md"
+
+dependencies = [
+    # Core parsing
+    "sqlglot>=25.0.0",
+
+    # Warehouse connectors
+    "duckdb>=0.10.0",
+    "snowflake-connector-python>=3.0.0",   # optional, for Snowflake
+
+    # LLM + structured output
+    "anthropic>=0.30.0",
+    "instructor>=1.3.0",
+
+    # Agent loop
+    "langgraph>=0.1.0",
+
+    # YAML + validation
+    "pyyaml>=6.0",
+    "jsonschema>=4.0",
+
+    # CLI
+    "click>=8.0",
+    "rich>=13.0",
+
+    # Config
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+
+    # Layer 1 — DDL / document / Excel ingest
+    "pypdf>=4.0.0",           # PDF text extraction
+    "python-docx>=1.1.0",     # Word document extraction
+    "openpyxl>=3.1.0",        # Excel workbook parsing
+
+    # Report-first bootstrapping (CANONIQ_V1_REPORTFIRST_SPEC)
+    "pyiceberg[sql-sqlite]>=0.7.0",  # Iceberg tables, local SQLite catalog
+    "pyarrow>=15.0.0",               # Iceberg <-> DuckDB interchange
+    "pdfplumber>=0.11.0",            # report table extraction
+    "reportlab>=4.0.0",              # synthetic benchmark PDF generation
+    "lxml>=5.0.0",                   # Tableau .twb XML parsing
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[project.scripts]
+canoniq = "canoniq.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["canoniq*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# hand-written Tableau XML fixture: long attribute lines are the format
+"benchmark/brownfield/artifacts.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+disallow_untyped_defs = false
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
